@@ -20,10 +20,15 @@ const userSchema = mongoose.Schema({
         type: String,
         default:""
     },
-    serchHistory:{
-        type:Array,
-        default:[]
-    }
+    searchHistory: [
+        {
+          id: Number,
+          image: String,
+          title: String,
+          searchType: String,
+          createdAt: { type: Date, default: new Date() }, // 🔥 اینجا `createdAt` رو مشخص کن
+        }
+      ]
 })
 
 export const User = mongoose.model('User' , userSchema);
