@@ -10,7 +10,7 @@ export async function getTrendingMovies(req, res) {
 
         
     } catch (error) {
-        res.status(500).json({ message: "Internal Server Error" });
+        res.status(500).json({ message: "خطای داخلی سرور "});
     }
 }
 
@@ -25,7 +25,7 @@ export async function getMovieTrailer(req, res) {
         if(error.response.status === 404){
             res.status(404).send(null);}
         else{
-            res.status(500).json({message: "Internal Server Error"});
+            res.status(500).json({message: "خطای داخلی سرور"});
         }
     }}
 export async function getMovieDetails(req, res) {
@@ -39,7 +39,7 @@ export async function getMovieDetails(req, res) {
         if(error.response.status === 404){
             res.status(404).send(null);}
         else{
-            res.status(500).json({message: "Internal Server Error"});
+            res.status(500).json({message: "خطای داخلی سرور"});
         }
 }}
 
@@ -54,7 +54,7 @@ export async function getMovieSimilar(req, res) {
         if(error.response.status === 404){
             res.status(404).send(null);}
         else{
-            res.status(500).json({message: "Internal Server Error"});
+            res.status(500).json({message: "خطای داخلی سرور"});
         }
     }
 }
@@ -71,6 +71,6 @@ export async function getMovieByCategory(req, res) {
         if(error.response.status === 404){
             res.status(404).send(null);}
         else{
-            res.status(500).json({message: "Internal Server Error"});
+            res.status(500).json({message: "خطای داخلی سرور"});
 
     }}}

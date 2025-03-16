@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors"; // اضافه کردن ماژول CORS
 
 import authRoutes from "./routes/auth.route.js"
 import movieRoutes from "./routes/movie.route.js"
@@ -9,9 +10,15 @@ import cookieParser from "cookie-parser";
 import protectRoute  from "./middleware/protectRoute.js";
 import searchRoutes from "./routes/search.route.js";
 
-
 const app = express();
 const PORT = ENV_VARS.PORT;
+
+app.use(cors({ 
+    origin: "http://localhost:5173", // یا دامنه‌ای که فرانت‌اند روی آن اجرا می‌شود
+    credentials: true // اگر از کوکی استفاده می‌کنید
+}));
+
+
 app.use(express.json()); // will allow us to parse req.body
 app.use(cookieParser());
 

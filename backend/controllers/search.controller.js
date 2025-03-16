@@ -24,8 +24,8 @@ export async function searchPerson(req, res) {
         res.status(200).json({success: true, content: response.results
         });
     } catch (error) {
-        console.log("error in searchPerson controller", error.message);
-        res.status(500).json({message: "Internal Server Error"});
+        console.log("خطا در کنترلر searchPerson", error.message);
+        res.status(500).json({message: "خطای داخلی سرور"});
     } 
 }
 
@@ -42,7 +42,7 @@ export async function searchMovie(req, res) {
             $push: {
                 searchHistory: {
                     id: response.results[0].id, 
-                    Image: response.results[0].poster_path,
+                    image: response.results[0].poster_path,
                     title: response.results[0].title,
                     searchType: "movie",
                     createdAt: new Date()
@@ -52,8 +52,8 @@ export async function searchMovie(req, res) {
         res.status(200).json({success: true, content: response.results
         });
     } catch (error) {
-        console.log("error in searchMovie controller", error.message);
-        res.status(500).json({message: "Internal Server Error"});
+        console.log("خطا در کنترلر searchMovie", error.message);
+        res.status(500).json({message: "خطای داخلی سرور"});
     }
 }
 
@@ -70,7 +70,7 @@ export async function searchTv(req, res) {
             $push: {
                 searchHistory: {
                     id: response.results[0].id, 
-                    Image: response.results[0].poster_path,
+                    image: response.results[0].poster_path,
                     title: response.results[0].name,
                     searchType: "tv",
                     createdAt: new Date()
@@ -80,8 +80,8 @@ export async function searchTv(req, res) {
         res.status(200).json({success: true, content: response.results
         });
     } catch (error) {
-        console.log("error in searchTv controller", error.message);
-        res.status(500).json({message: "Internal Server Error"});
+        console.log("خطا در کنترلر searchTv", error.message);
+        res.status(500).json({message: "خطای داخلی سرور"});
 } 
 }
 
@@ -90,8 +90,8 @@ export async function getSearchHistory(req, res) {
         res.status(200).json({success: true, content: req.user.searchHistory});
     }
     catch (error) {
-        console.log("error in searchHistory controller", error.message);
-        res.status(500).json({message: "Internal Server Error"});
+        console.log("خطا در کنترلر searchHistory", error.message);
+        res.status(500).json({message: "خطای داخلی سرور"});
     }
 }
 
@@ -105,10 +105,10 @@ export async function reamoveItemFromSearchHistory(req, res) {
                 }
             }
         });
-        res.status(200).json({success: true, message: "Item removed from search history"});
+        res.status(200).json({success: true, message: "مورد از تاریخچه جستجو حذف شد"});
     } catch (error) {
-        console.log("error in reamoveItemFromSearchHistory controller", error.message);
-        res.status(500).json({message: "Internal Server Error"});
+        console.log("خطا در کنترلر removeItemFromSearchHistory", error.message);
+        res.status(500).json({message: "خطای داخلی سرور"});
     }
 
 }

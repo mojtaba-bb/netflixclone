@@ -6,15 +6,15 @@ const protectRoute = async (req, res, next) => {
     try {
         const token = req.cookies["jwt-netflix"];
         if(!token) {
-            return res.status(401).json({message: "Unauthorized"});
+            return res.status(401).json({message: "دسترسی غیرمجاز"});
         }
         const decoded = jwt.verify(token, ENV_VARS.JWT_SECRET);
         if(!decoded) {
-            return res.status(401).json({message: "Unauthorized"});
+            return res.status(401).json({message: "دسترسی غیرمجاز"});
         }
         const user = await User.findById(decoded.userId).select("-password");
         if(!user) {
-            return res.status(404).json({message: "user not found"});
+            return res.status(404).json({message: "کاربر پیدا نشد"});
         }
 
         req.user = user;
@@ -23,7 +23,7 @@ const protectRoute = async (req, res, next) => {
 
     } catch (error) {
         console.log("error in protectRoute middleware", error.message);
-        res.status(500).json({message: "Internal Server Error"}); 
+        res.status(500).json({message: "خطای داخلی سرور"}); 
     }
 }
 

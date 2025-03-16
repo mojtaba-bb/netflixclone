@@ -1,1 +1,137 @@
 @import "tailwindcss";
+
+/* معرفی فونت با استفاده از @font-face */
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/woff/IRANSansXFaNum-Thin.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/woff/IRANSansXFaNum-UltraLight.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-UltraLight.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/woff/IRANSansXFaNum-Light.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/woff/IRANSansXFaNum-Medium.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/woff/IRANSansXFaNum-DemiBold.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-DemiBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/woff/IRANSansXFaNum-ExtraBold.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-ExtraBold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/woff/IRANSansXFaNum-Black.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 950;
+  src: url("/fonts/woff/IRANSansXFaNum-ExtraBlack.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-ExtraBlack.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 1000;
+  src: url("/fonts/woff/IRANSansXFaNum-Heavy.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Heavy.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/woff/IRANSansXFaNum-Bold.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/woff/IRANSansXFaNum-Regular.woff") format("woff"),
+    url("/fonts/woff2/IRANSansXFaNum-Regular.woff2") format("woff2");
+}
+
+.font-iranSans-bold {
+  font-family: IRANSansX;
+  font-style: normal;
+  font-weight: 1000;
+}
+
+.font-iranSans {
+  font-family: IRANSansX;
+}
+
+.bg-hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.1)),
+    url("/media/hero.png");
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #2c2c2c 4%, #333 25%, #2c2c2c);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.error-page--content::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.5) 0,
+    rgba(0, 0, 0, 0.2) 45%,
+    rgba(0, 0, 0, 0.1) 55%,
+    transparent 70%
+  );
+  bottom: -10vw;
+  content: "";
+  position: absolute;
+  left: 10vw;
+  right: 10vw;
+  top: -10vw;
+  z-index: -1;
+}
