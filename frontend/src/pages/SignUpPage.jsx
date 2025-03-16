@@ -10,7 +10,9 @@ function SignUpPage() {
   const [username, setUsername] = useState(""); 
   const [password, setPassword] = useState("");
 
-  const {signup} = useAuthStore();
+  
+
+  const {signup , isSigningUp} = useAuthStore();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,8 +74,8 @@ function SignUpPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className="w-full py-2 bg-red-600 rounded-md text-white font-semibold" >
-              <span>ثبت نام</span>
+            <button className="w-full py-2 bg-red-600 rounded-md text-white font-semibold" disabled={isSigningUp}>
+              <span>{isSigningUp ? "در حال ثبت نام ... " : "ثبت نام"}</span>
             </button>
           </form>
           <div className="text-center text-gray-400 cursor-default">

@@ -4,7 +4,7 @@ import { useAuthStore } from "../store/authUser";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {login} = useAuthStore();
+  const {login,isLoginIn} = useAuthStore();
   const handleSubmit = (e) => {
     e.preventDefault();
     login({email, password});
@@ -51,8 +51,8 @@ function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className="w-full py-2 bg-red-600 rounded-md text-white font-semibold" >
-              <span>ورود</span>
+            <button className="w-full py-2 bg-red-600 rounded-md text-white font-semibold" disabled={isLoginIn}>
+              <span>{isLoginIn ? "در حال ورود ..." : "ورود"}</span>
             </button>
           </form>
           <div className="text-center text-gray-400 cursor-default">
